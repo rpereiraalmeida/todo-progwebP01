@@ -1,3 +1,13 @@
+# GRUPO ABERTO (??)
+
+## Integrantes:
+  1) GABRIEL COLMAN RODRIGUES
+	2) JOAO PEDRO FIGUEIREDO DE OLIVEIRA 
+	3) MURILO ESTECA ARELHANO
+	4) RAPHAEL ALMEIDA MECENAS
+	5) RODRIGO PEREIRA DE ALMEIDA
+
+
 # To-Do App
 
 To-Do é uma aplicação web para gerenciamento de tarefas diárias simples.
