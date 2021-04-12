@@ -1,0 +1,92 @@
+:root {
+    --color-primary: #2196f3;
+    --color-secondary: #607d8b;
+    --color-success: #4caf50;
+    --color-danger: #f44336;
+    --color-alert: #ffeb3b;
+}
+
+button {
+    padding: 7px;
+    border-radius: 4px;
+}
+
+input {
+    padding: 3px;
+    border-radius: 4px;
+    outline: none;
+    border: black solid 0.6px;
+    background-color: transparent;
+}
+
+.search-bar{
+    border: white solid 0.6px;
+}
+
+.search-bar::placeholder{
+    color: rgba(255, 255, 255, 0.877);
+    padding: 5px;
+}
+
+.container {
+    display: flex;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding: 10px 25px;
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.sidebar {
+    padding: 35px 40px;
+    border-right: rgba(0, 0, 0, 0.6) solid 1px;
+    height: 100vh;
+    flex: 17% 0 0;
+    color: var(--color-secondary);
+}
+
+.sidebar-item {
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.stats {
+    margin-top: 100px;
+}
+
+.stats-bar {
+    border-radius: 10px;
+    width: 100%;
+    height: 10px;
+    margin-bottom: 10px;
+}
+
+.stats-bar-progress {
+    border-radius: 10px;
+    width: 33%;
+    height: 10px;
+}
+.btn-primary {
+    background-color: var(--color-primary);
+    border: #2196f3 1px solid;
+    color: white;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #45a4f3;
+    border: #45a4f3 1px solid;
+    transform: translateY(-1px);
+}
+
+.text-color-white {
+    color: white;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}

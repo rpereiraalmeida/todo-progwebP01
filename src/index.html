@@ -1,1 +1,76 @@
 <!-- initial file -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/colors-helpers.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/reboot.css">
+
+    <title>To-do</title>
+</head>
+
+<body>
+    <header class="header">
+        <div>
+            <img src="./assets/MenuToggle.svg" class="cursor-pointer" alt="" style="margin-right:10px;">
+            <img src="./assets/Home.svg" class="cursor-pointer" alt="">
+        </div>
+        <div>
+            <span>Today's Task</span>
+            <img src="./assets/Logo.svg" alt="">
+        </div>
+        <input type="text" class="text-color-white search-bar" placeholder="Procure por uma tarefa">
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <button type="button" class="btn-primary sidebar-item">Create Task +</button>
+            <nav>
+                <div class="sidebar-item">
+                    <img src="./assets/Bookmark.svg" alt="">
+                    <strong>Tarefas Pendentes</strong>
+                </div>
+                <div class="sidebar-item">
+                    <img src="./assets/Bookmark-1.svg" alt="">
+                    <strong> Tarefas Concluidas</strong>
+                </div>
+                <div class="sidebar-item">
+                    <img src="./assets/OpenedFolder.svg" alt="">
+                    <strong>Listas</strong>
+                </div>
+            </nav>
+
+            <div class="stats">
+                <div>
+                    <strong>33% - Pendente</strong>
+                    <div class="bg-ligth stats-bar">
+                        <div class="bg-alert stats-bar-progress"></div>
+                    </div>
+                </div>
+                <div>
+                    <strong>33% - Completo</strong>
+                    <div class="bg-ligth stats-bar">
+                        <div class="bg-success stats-bar-progress"></div>
+                    </div>
+                </div>
+                <div>
+                    <strong>33% - Atrasado</strong>
+                    <div class="bg-ligth stats-bar">
+                        <div class="bg-danger stats-bar-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <main>
+
+        </main>
+        <aside>
+
+        </aside>
+    </div>
+</body>
+
+</html>
