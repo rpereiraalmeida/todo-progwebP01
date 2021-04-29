@@ -176,6 +176,7 @@ input {
   width: 100%;
   max-width: 500px;
   justify-content: space-between;
+  height: 50px;
 }
 
 .tasks-completas-item > p {
