@@ -20,27 +20,9 @@ input {
   background-color: transparent;
 }
 
-<<<<<<< Updated upstream
-.search-bar {
-    border: rgba(255, 255, 255, 0.7) solid 0.6px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    align-content: center;
-    padding: 0 5px;
-}
-
-.search-bar > input {
-    border: none;
-    outline: none;
-}
-
-.search-bar > input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-    padding: 5px;
-=======
-main {
+.main {
   padding: 20px;
+  flex: 1 0 0;
 }
 
 .search-bar {
@@ -59,12 +41,12 @@ main {
 
 .border-0 {
   border: none;
->>>>>>> Stashed changes
 }
 
 .container {
   display: flex;
 }
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -105,7 +87,7 @@ main {
 }
 
 .sidebar-item.clicked {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .stats {
@@ -113,17 +95,10 @@ main {
 }
 
 .stats-bar {
-<<<<<<< Updated upstream
-    border-radius: 10px;
-    width: 100%;
-    height: 10px;
-    margin-bottom: 20px;
-=======
   border-radius: 10px;
   width: 100%;
   height: 10px;
   margin-bottom: 10px;
->>>>>>> Stashed changes
 }
 
 .stats-bar-progress {
@@ -153,11 +128,6 @@ main {
 }
 
 .cursor-pointer {
-<<<<<<< Updated upstream
-    cursor: pointer;
-}
-
-=======
   cursor: pointer;
 }
 
@@ -191,4 +161,27 @@ main {
     display: none;
   }
 }
->>>>>>> Stashed changes
+.tasks-completas-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks-completas-item {
+  display: flex;
+  align-items : center;
+  padding: 10px 50px;
+  margin: 20px;
+  border: 1px solid #607d8b;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 500px;
+  justify-content: space-around;
+}
+
+.tasks-completas-item > p {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  font-size: 19px;
+  
+}
