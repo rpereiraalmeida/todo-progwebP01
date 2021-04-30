@@ -20,6 +20,7 @@ input {
   background-color: transparent;
 }
 
+
 .main {
   padding: 20px;
   flex: 1 0 0;
@@ -159,6 +160,7 @@ input {
     display: none;
   }
 }
+
 .tasks-completas-container {
   display: flex;
   flex-direction: column;
@@ -222,3 +224,4 @@ input {
   margin-left: auto;
   margin-top: 15px;
 }
+
