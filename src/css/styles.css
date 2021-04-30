@@ -169,14 +169,14 @@ input {
 .tasks-completas-item {
   display: flex;
   align-items : center;
-  padding: 10px 50px;
+  padding: 17px 30px;
   margin: 20px;
-  border: 1px solid #607d8b;
+  border: 0.5px solid rgba(0, 0, 0, 0.6);
   border-radius: 5px;
   width: 100%;
-  max-width: 500px;
+  max-width: 721px;
   justify-content: space-between;
-  height: 50px;
+  height: 58px;
 }
 
 .tasks-completas-item > p {
