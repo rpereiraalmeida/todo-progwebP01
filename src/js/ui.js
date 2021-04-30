@@ -6,3 +6,7 @@ function toggleMenu() {
         sidebar.classList.add('close-menu')
     }
 }
+let editform = document.getElementsByClassName('edit-form')[0]
+function fecharmenu() {
+    editform.classList.add('close-menu')
+}
