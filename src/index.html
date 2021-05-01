@@ -38,15 +38,15 @@
         <aside class="sidebar">
             <button type="button" class="btn-primary sidebar-item">Create Task +</button>
             <nav>
-                <div class="sidebar-item">
+                <div class="sidebar-item" onclick="navegateTo('index.html')">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M23 27L15 20L7 27V5C7 3.895 7.895 3 9 3H21C22.105 3 23 3.895 23 5V27Z"
                             fill="#607D8B" />
                     </svg>
-
                     <strong>Tarefas Pendentes</strong>
+
                 </div>
-                <div class="sidebar-item">
+                <div class="sidebar-item" onclick="navegateTo('tarefasConcluidas.html')">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M4 5C2.895 5 2 5.895 2 7V23C2 24.105 2.895 25 4 25H12C13.105 25 14 25.895 14 27V7C14 5.895 13.105 5 12 5H4ZM18 5C16.895 5 16 5.895 16 7V27C16 25.895 16.895 25 18 25H26C27.105 25 28 24.105 28 23V7C28 5.895 27.105 5 26 5H18Z"
@@ -55,7 +55,7 @@
 
                     <strong> Tarefas Concluidas</strong>
                 </div>
-                <div class="sidebar-item">
+                <div class="sidebar-item" onclick="navegateTo('listas.html')">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M5 4C3.895 4 3 4.895 3 6V9V11H22H27V8C27 6.895 26.105 6 25 6H12.1992L11.582 4.9707C11.221 4.3687 10.5702 4 9.86719 4H5ZM2.50196 13C1.49296 13 0.770409 13.9774 1.06641 14.9414L4.03516 24.5879C4.29416 25.4269 5.06927 26 5.94727 26H15H24.0527C24.9307 26 25.7058 25.4269 25.9648 24.5879L28.9336 14.9414C29.2296 13.9774 28.507 13 27.498 13H15H2.50196Z"
@@ -87,13 +87,27 @@
                 </div>
             </div>
         </aside>
-        <main>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere consequatur minima placeat amet et
-            laudantium quis quasi ipsam reprehenderit molestias? Minus maiores esse a temporibus exercitationem eos
-            dolor veritatis repellendus?
-        </main>
-        <aside>
+        <main class="main">
+            <div class="tasks-completas-container">
+                <h4>Tarefas Pendentes</h4>
 
+            </div>
+        </main>
+        <aside class="edit-form close-edit-form">
+            <img src="./assets/Delete.svg" style="margin-left:auto;" onclick="toggleFormEdit()">
+            <h2>Título</h2>
+            <input type="text" class="edit-form-text">
+            <h3>Descrição</h3>
+            <textarea class="edit-form-textarea"></textarea>
+            <h4>Lista Pertencente(opcional)</h4>
+            <p>Ao selecionar uma lista, a task será exibida associada a ela</p>
+            <select name="select" class="edit-form-selector">
+                <option value="Lista1">Lista 1</option>
+                <option value="Lista2">Lista 2</option>
+            </select>
+            <h5>Data Limite</h5>
+            <input type="date" class="edit-form-date">
+            <button type="button" class="btn-salvar-alteracoes" onclick="fecharmenu()">Salvar alterações </button>
         </aside>
     </div>
     <script src="./js/ui.js"></script>
