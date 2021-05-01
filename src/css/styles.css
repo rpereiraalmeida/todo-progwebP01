@@ -23,6 +23,7 @@ input {
 .main {
   padding: 20px;
   flex: 1 0 0;
+  margin: 0 auto;
 }
 
 .search-bar {
@@ -69,7 +70,6 @@ input {
 .close-menu {
   transform: translateX(-400px);
   position: absolute;
-  padding: 0;
 }
 
 .sidebar-item {
@@ -115,7 +115,7 @@ input {
   background-color: var(--color-primary);
   border: #2196f3 1px solid;
   color: white;
-  transition: all 0.3s;
+  transition: all 0.1s;
 }
 
 .btn-primary:hover {
@@ -135,40 +135,15 @@ input {
 .cursor-pointer {
   cursor: pointer;
 }
-
-@media (max-width: 1024px) {
-  .sidebar {
-    flex: 28% 0 0;
-  }
-}
-
-@media (max-width: 876px) {
-  .sidebar {
-    flex: 32% 0 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    position: absolute;
-  }
-}
-
-@media (max-width: 430px) {
-  .logo {
-    display: none;
-  }
-}
 .tasks-completas-container {
-  display: flex;
-  flex-direction: column;
+  text-align: center;
 }
 
 .tasks-completas-item {
   display: flex;
   align-items: center;
   padding: 17px 30px;
-  margin: 20px;
+  margin: 20px auto;
   border: 0.5px solid rgba(0, 0, 0, 0.6);
   border-radius: 5px;
   width: 100%;
@@ -185,40 +160,81 @@ input {
 }
 
 .edit-form {
-  flex: 30% 0 0;
+  flex: 28% 0 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 25px;
+  background-color: white;
   border-left: rgba(0, 0, 0, 0.6) solid 1px;
-  
+  transition: 0.3s all;
 }
-.edit-form > p{
+.edit-form > p {
   font-size: 14px;
   margin: 5px;
 }
-.edit-form > h2{
+.edit-form > h2 {
   font-size: 24px;
   margin: 5px;
 }
-.edit-form > h3{
+.edit-form > h3 {
   font-size: 24px;
   margin: 5px;
 }
-.edit-form > h4{
+.edit-form > h4 {
   font-size: 24px;
   margin: 5px;
 }
-.edit-form > h5{
+.edit-form > h5 {
   font-size: 24px;
   margin: 5px;
 }
-.btn-salvar-alteracoes{
+
+.close-edit-form {
+  transform: translateX(-100vw);
+  position: absolute;
+}
+
+.btn-salvar-alteracoes {
   background-color: var(--color-primary);
   border: #2196f3 1px solid;
   color: white;
   transition: all 0.3s;
   margin-left: auto;
   margin-top: 15px;
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    flex: 28% 0 0;
+  }
+  .edit-form {
+    flex: 30% 0 0;
+  }
+}
+
+@media (max-width: 876px) {
+  .sidebar {
+    flex: 32% 0 0;
+  }
+  .edit-form {
+    flex: 35% 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+  }
+  .edit-form {
+    right: 0;
+    position: absolute;
+  }
+}
+
+@media (max-width: 430px) {
+  .logo {
+    display: none;
+  }
 }
