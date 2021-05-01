@@ -20,6 +20,7 @@ input {
   background-color: transparent;
 }
 
+
 .main {
   padding: 20px;
   flex: 1 0 0;
@@ -135,6 +136,31 @@ input {
 .cursor-pointer {
   cursor: pointer;
 }
+
+@media (max-width: 1024px) {
+  .sidebar {
+    flex: 28% 0 0;
+  }
+}
+
+@media (max-width: 876px) {
+  .sidebar {
+    flex: 32% 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+  }
+}
+
+@media (max-width: 430px) {
+  .logo {
+    display: none;
+  }
+}
+
 .tasks-completas-container {
   text-align: center;
 }
@@ -205,36 +231,3 @@ input {
   margin-top: 15px;
 }
 
-@media (max-width: 1024px) {
-  .sidebar {
-    flex: 28% 0 0;
-  }
-  .edit-form {
-    flex: 30% 0 0;
-  }
-}
-
-@media (max-width: 876px) {
-  .sidebar {
-    flex: 32% 0 0;
-  }
-  .edit-form {
-    flex: 35% 0 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    position: absolute;
-  }
-  .edit-form {
-    right: 0;
-    position: absolute;
-  }
-}
-
-@media (max-width: 430px) {
-  .logo {
-    display: none;
-  }
-}
