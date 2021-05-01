@@ -60,7 +60,7 @@ input {
 
 .sidebar {
   padding: 35px 40px;
-  border-right: rgba(0, 0, 0, 0.6) solid 1px;
+  border-right: #607d8b solid 1px;
   height: 100vh;
   flex: 22% 0 0;
   color: var(--color-secondary);
@@ -238,3 +238,54 @@ input {
     display: none;
   }
 }
+
+/*section que define as listas ao centro*/
+section#listas{
+  float: left;
+  padding: 40px 60px;
+  width: 40%;  
+  height: auto;  
+  position: relative;
+}
+
+section#listas img{
+  height: 20px;
+  width: 20px;
+}
+
+
+section#listas ul{
+  padding: 20px 0px;
+  list-style: none;
+}
+
+
+section#listas_sidebar{
+  float: left;
+  padding: 40px 60px;
+  width: 40%;
+  height: auto;  
+  border-left: #607d8b solid 1px;
+  position: relative;
+}
+
+section#listas_sidebar p{
+  text-align: justify;
+  color: var(--color-secondary);
+}
+
+section#listas_sidebar img{
+  height: 20px;
+  width: 20px;
+}
+
+section#listas_sidebar ul{
+  padding: 20px 40px;
+  list-style: none;
+}
+
+section#listas_sidebar input[type="text"]{
+  border-color: #607d8b;  
+}
+
+
