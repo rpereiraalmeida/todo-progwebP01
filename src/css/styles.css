@@ -304,7 +304,10 @@ section#listas_right h4{
   border: #2196f3 1px solid;
   color: white;
   transition: all 0.1s;
-  
+  cursor: pointer;
+  position: absolute;
+  top: 80%;
+  left:68%;
 }
 
 .btn-save:hover {
