@@ -1,3 +1,4 @@
+<!-- initial file -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,12 +88,39 @@
                 </div>
             </div>
         </aside>
-        <main class="main">
-            <div class="tasks-completas-container">
-                <h4>Tarefas Pendentes</h4>
+        <section id="listas">
+          <h4>Listas</h4>
+          <ul>
+            <li>
+              <input type="radio"id="rd_listas">
+              <label for="rd_listas">Esta aqui é uma lista</label>
+              <img src="./assets/Remove.svg" alt="remove" style="float: right">  
+              <img src="./assets/Edit.svg" alt="edit" style="float: right">
+                              
+            </li>
+          </ul>
+        </section>
 
-            </div>
-        </main>
+        <section id="listas_right">
+          <h4>Título</h4>
+          <input type="text" name="titulo" autofocus id="titulo">
+            <label for="titulo"></label>
+          <h4>Task da Lista</h4>
+          <p>As tasks criadas dever ser inseridas na lista através da opção &quot;Lista Pertencente
+            (Opcional)&quot; no painel de edição da task.
+          </p>
+          <ul>
+              <li>
+                <input type="radio"id="rd_listas_right">
+                <label for="rd_listas_right">Uma tarefa bem importante ai</label>
+                <img src="./assets/Delete.svg" alt="delete" style="float:right">                  
+              </li>
+          </ul>
+          
+          <button type="button" class="btn-save">Salvar Alterações</button>
+        </section>
+
+        
         <aside class="edit-form close-edit-form">
             <img src="./assets/Delete.svg" style="margin-left:auto;" onclick="toggleFormEdit()">
             <h2>Título</h2>

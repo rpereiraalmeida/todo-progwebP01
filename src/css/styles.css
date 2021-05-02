@@ -60,7 +60,7 @@ input {
 
 .sidebar {
   padding: 35px 40px;
-  border-right: rgba(0, 0, 0, 0.6) solid 1px;
+  border-right: #607d8b solid 1px;
   height: 100vh;
   flex: 22% 0 0;
   color: var(--color-secondary);
@@ -237,4 +237,81 @@ input {
   .logo {
     display: none;
   }
+}
+
+/*section que define as listas ao centro*/
+section#listas{
+  float: left;
+  padding: 40px 60px;
+  width: 50%;  
+  height: auto;  
+  position: relative;  
+  
+}
+
+section#listas img{
+  height: 25px;
+  width: 25px;
+}
+
+section#listas ul{
+  list-style: none;
+  border: 0.6px solid var(--color-secondary);
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 8px;
+}
+
+/*section que define as listas à direita*/
+section#listas_right{
+  float: left;
+  padding: 40px 60px;
+  width: 50%;
+  height: auto;    
+  position: relative;
+  border-left: var(--color-secondary) solid 1px;
+}
+
+section#listas_right p{
+  text-align: justify;
+  color: var(--color-secondary);
+}
+
+section#listas_right img{
+  height: 25px;
+  width: 25px;  
+}
+
+section#listas_right ul{
+  list-style: none;
+  border: 0.6px solid var(--color-secondary);
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 8px;
+}
+
+section#listas_right input[type="text"]{
+  border-color: var(--color-secondary); 
+  margin-bottom: 50px; 
+}
+
+section#listas_right h4{
+  margin-bottom: 10px;
+}
+
+.btn-save {
+  background-color: var(--color-primary);
+  border: #2196f3 1px solid;
+  color: white;
+  transition: all 0.1s;
+  cursor: pointer;
+  position: absolute;
+  top: 80%;
+  left:68%;
+}
+
+.btn-save:hover {
+  background-color: #45a4f3;
+  border: #45a4f3 1px solid;
+  transform: translateY(-1px);
 }
