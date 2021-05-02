@@ -9,6 +9,7 @@ function toggleMenu() {
 }
 
 let editform = document.getElementsByClassName('edit-form')[0]
+
 function toggleFormEdit() {
     if (editform.classList.contains('close-edit-form')) {
         editform.classList.remove('close-edit-form')
@@ -19,4 +20,12 @@ function toggleFormEdit() {
 
 function navegateTo(link) {
     location.href = link
+}
+
+function createTask() {
+    
+}
+
+function deleteTaskItem(el) {
+    el.parentNode.parentNode.remove()
 }
