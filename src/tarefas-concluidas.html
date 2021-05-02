@@ -1,3 +1,4 @@
+<!-- initial file -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +48,7 @@
                     <strong>Tarefas Pendentes</strong>
 
                 </div>
-                <div class="sidebar-item" onclick="navegateTo('tarefas-concluidas.html')">
+                <div class="sidebar-item" onclick="navegateTo('#')">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M4 5C2.895 5 2 5.895 2 7V23C2 24.105 2.895 25 4 25H12C13.105 25 14 25.895 14 27V7C14 5.895 13.105 5 12 5H4ZM18 5C16.895 5 16 5.895 16 7V27C16 25.895 16.895 25 18 25H26C27.105 25 28 24.105 28 23V7C28 5.895 27.105 5 26 5H18Z"
@@ -88,15 +89,17 @@
                 </div>
             </div>
         </aside>
+
         <main class="main">
             <div class="tasks-container">
                 <div>
-                    <h4>Tarefas Pendentes</h4>
-                    <span class="text-help">Visualize todas as tasks que ainda não foram concluidas</span>
+                    <h4>Tarefas Concluidas</h4>
                     <div class="tasks-item">
-                        <div class="">
-                            <svg height="30" width="30">
-                                <circle cx="15" cy="15" r="10" fill="transparent" stroke="black" stroke-width="2" />
+                        <div>
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15 3C8.373 3 3 8.373 3 15C3 21.627 8.373 27 15 27C21.627 27 27 21.627 27 15C27 8.373 21.627 3 15 3ZM21.707 12.707L14.147 20.267C13.959 20.455 13.705 20.56 13.44 20.56C13.175 20.56 12.92 20.455 12.733 20.267L9.28 16.814C8.889 16.423 8.889 15.791 9.28 15.4C9.671 15.009 10.303 15.009 10.694 15.4L13.44 18.146L20.293 11.293C20.684 10.902 21.316 10.902 21.707 11.293C22.098 11.684 22.098 12.316 21.707 12.707Z"
+                                    fill="#4CAF50" />
                             </svg>
                             <p>Uma task importante ai</p>
                         </div>
@@ -106,22 +109,10 @@
                         </div>
                     </div>
                 </div>
-                <div>
-                    <h4>Concluidas Recentemente</h4>
-                    <span class="text-help">Suas ultimas 5 tarefas concluidas</span>
-                    <div class="tasks-item">
-                        <div class="">
-                            <img src="./assets/Ok.svg" alt="">
-                            <p>Uma task importante ai</p>
-                        </div>
-                        <div>
-                            <img src="./assets/Edit.svg" alt="" onclick="toggleFormEdit()">
-                            <img src="./assets/Remove.svg" alt="" onclick="deleteTaskItem(this)">
-                        </div>
-                    </div>
-                </div>
 
+            </div>
         </main>
+
         <aside class="edit-form close-edit-form">
             <img src="./assets/Delete.svg" style="margin-left:auto;" onclick="toggleFormEdit()">
             <h4>Título</h4>

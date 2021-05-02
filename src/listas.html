@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="css/colors-helpers.css">
+    <link rel="stylesheet" href="css/align-helpers.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/reboot.css">
 
@@ -47,7 +48,7 @@
                     <strong>Tarefas Pendentes</strong>
 
                 </div>
-                <div class="sidebar-item" onclick="navegateTo('tarefasConcluidas.html')">
+                <div class="sidebar-item" onclick="navegateTo('tarefas-concluidas.html')">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M4 5C2.895 5 2 5.895 2 7V23C2 24.105 2.895 25 4 25H12C13.105 25 14 25.895 14 27V7C14 5.895 13.105 5 12 5H4ZM18 5C16.895 5 16 5.895 16 7V27C16 25.895 16.895 25 18 25H26C27.105 25 28 24.105 28 23V7C28 5.895 27.105 5 26 5H18Z"
@@ -88,55 +89,46 @@
                 </div>
             </div>
         </aside>
-        <section id="listas">
-          <h4>Listas</h4>
-          <ul>
-            <li>
-              <input type="radio"id="rd_listas">
-              <label for="rd_listas">Esta aqui é uma lista</label>
-              <img src="./assets/Remove.svg" alt="remove" style="float: right">  
-              <img src="./assets/Edit.svg" alt="edit" style="float: right">
-                              
-            </li>
-          </ul>
-        </section>
+
+        <main id="listas" class="main">
+            <h4>Listas</h4>
+            <div class="tasks-item">
+                <div class="">
+                    <svg height="30" width="30">
+                        <circle cx="15" cy="15" r="10" fill="transparent" stroke="black" stroke-width="2" />
+                    </svg>
+                    <p>Uma Lista bem legal</p>
+                </div>
+                <div>
+                    <img src="./assets/Edit.svg" alt="">
+                    <img src="./assets/Remove.svg" alt="">
+                </div>
+            </div>
+        </main>
 
         <section id="listas_right">
-          <h4>Título</h4>
-          <input type="text" name="titulo" autofocus id="titulo">
+            <h4>Título</h4>
+            <input type="text" name="titulo" autofocus id="titulo">
             <label for="titulo"></label>
-          <h4>Task da Lista</h4>
-          <p>As tasks criadas dever ser inseridas na lista através da opção &quot;Lista Pertencente
-            (Opcional)&quot; no painel de edição da task.
-          </p>
-          <ul>
-              <li>
-                <input type="radio"id="rd_listas_right">
-                <label for="rd_listas_right">Uma tarefa bem importante ai</label>
-                <img src="./assets/Delete.svg" alt="delete" style="float:right">                  
-              </li>
-          </ul>
-          
-          <button type="button" class="btn-save">Salvar Alterações</button>
-        </section>
+            <h4>Task da Lista</h4>
+            <p class="text-help">As tasks criadas dever ser inseridas na lista através da opção &quot;Lista Pertencente
+                (Opcional)&quot; no painel de edição da task.
+            </p>
+            <div class="tasks-item">
+                <div class="">
+                    <svg height="30" width="30">
+                        <circle cx="15" cy="15" r="10" fill="transparent" stroke="black" stroke-width="2" />
+                    </svg>
+                    <p>Uma Lista bem legal</p>
+                </div>
+                <div>
+                    <img src="./assets/Edit.svg" alt="">
+                    <img src="./assets/Remove.svg" alt="">
+                </div>
+            </div>
 
-        
-        <aside class="edit-form close-edit-form">
-            <img src="./assets/Delete.svg" style="margin-left:auto;" onclick="toggleFormEdit()">
-            <h2>Título</h2>
-            <input type="text" class="edit-form-text">
-            <h3>Descrição</h3>
-            <textarea class="edit-form-textarea"></textarea>
-            <h4>Lista Pertencente(opcional)</h4>
-            <p>Ao selecionar uma lista, a task será exibida associada a ela</p>
-            <select name="select" class="edit-form-selector">
-                <option value="Lista1">Lista 1</option>
-                <option value="Lista2">Lista 2</option>
-            </select>
-            <h5>Data Limite</h5>
-            <input type="date" class="edit-form-date">
-            <button type="button" class="btn-salvar-alteracoes" onclick="fecharmenu()">Salvar alterações </button>
-        </aside>
+            <button type="button" class="btn-primary ml-auto">Salvar Alterações</button>
+        </section>
     </div>
     <script src="./js/ui.js"></script>
 </body>

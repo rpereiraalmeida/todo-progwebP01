@@ -20,8 +20,16 @@ input {
   background-color: transparent;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
 .main {
-  padding: 20px;
+  padding: 40px 25px;
   flex: 1 0 0;
   margin: 0 auto;
 }
@@ -66,6 +74,7 @@ input {
   color: var(--color-secondary);
   transition: all 0.2s;
   background-color: white;
+  z-index: 999;
 }
 .close-menu {
   transform: translateX(-400px);
@@ -111,6 +120,7 @@ input {
   width: 33%;
   height: 10px;
 }
+
 .btn-primary {
   background-color: var(--color-primary);
   border: #2196f3 1px solid;
@@ -120,6 +130,7 @@ input {
 
 .btn-primary:hover {
   background-color: #45a4f3;
+  color: white;
   border: #45a4f3 1px solid;
   transform: translateY(-1px);
 }
@@ -135,15 +146,28 @@ input {
 .cursor-pointer {
   cursor: pointer;
 }
-.tasks-completas-container {
-  text-align: center;
+
+.text-help {
+  color: var(--color-secondary);
+  font-size: 15px;
+}
+.tasks-container {
+  max-width: 600px;
+  margin: auto;
 }
 
-.tasks-completas-item {
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 80%;
+}
+
+.tasks-item {
   display: flex;
   align-items: center;
   padding: 17px 30px;
-  margin: 20px auto;
+  margin: 20px 0;
   border: 0.5px solid rgba(0, 0, 0, 0.6);
   border-radius: 5px;
   width: 100%;
@@ -152,11 +176,25 @@ input {
   height: 58px;
 }
 
-.tasks-completas-item > p {
+.tasks-item div > p {
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 0px;
   font-size: 19px;
+}
+
+.tasks-item > div {
+  display: flex;
+}
+
+.tasks-item svg {
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.tasks-item img {
+  cursor: pointer;
+  margin: 0 5px;
 }
 
 .edit-form {
@@ -169,26 +207,7 @@ input {
   background-color: white;
   border-left: rgba(0, 0, 0, 0.6) solid 1px;
   transition: 0.3s all;
-}
-.edit-form > p {
-  font-size: 14px;
-  margin: 5px;
-}
-.edit-form > h2 {
-  font-size: 24px;
-  margin: 5px;
-}
-.edit-form > h3 {
-  font-size: 24px;
-  margin: 5px;
-}
-.edit-form > h4 {
-  font-size: 24px;
-  margin: 5px;
-}
-.edit-form > h5 {
-  font-size: 24px;
-  margin: 5px;
+  z-index: 11;
 }
 
 .close-edit-form {
@@ -240,78 +259,25 @@ input {
 }
 
 /*section que define as listas ao centro*/
-section#listas{
+#listas {
   float: left;
-  padding: 40px 60px;
-  width: 50%;  
-  height: auto;  
-  position: relative;  
-  
-}
-
-section#listas img{
-  height: 25px;
-  width: 25px;
-}
-
-section#listas ul{
-  list-style: none;
-  border: 0.6px solid var(--color-secondary);
-  border-radius: 4px;
-  box-sizing: border-box;
-  padding: 8px;
+  flex: 1 0 0;
+  position: relative;
+  z-index: 12;
 }
 
 /*section que define as listas à direita*/
-section#listas_right{
-  float: left;
+#listas_right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 40px 60px;
-  width: 50%;
-  height: auto;    
-  position: relative;
+  height: 100vh;
+  flex: 45% 0 0;
   border-left: var(--color-secondary) solid 1px;
 }
 
-section#listas_right p{
-  text-align: justify;
-  color: var(--color-secondary);
-}
-
-section#listas_right img{
-  height: 25px;
-  width: 25px;  
-}
-
-section#listas_right ul{
-  list-style: none;
-  border: 0.6px solid var(--color-secondary);
-  border-radius: 4px;
-  box-sizing: border-box;
-  padding: 8px;
-}
-
-section#listas_right input[type="text"]{
-  border-color: var(--color-secondary); 
-  margin-bottom: 50px; 
-}
-
-section#listas_right h4{
-  margin-bottom: 10px;
-}
-
-.btn-save {
-  background-color: var(--color-primary);
-  border: #2196f3 1px solid;
-  color: white;
-  transition: all 0.1s;
-  cursor: pointer;
-  position: absolute;
-  top: 80%;
-  left:68%;
-}
-
-.btn-save:hover {
-  background-color: #45a4f3;
-  border: #45a4f3 1px solid;
-  transform: translateY(-1px);
+#listas_right input[type="text"] {
+  border-color: var(--color-secondary);
+  margin-bottom: 50px;
 }
