@@ -243,49 +243,72 @@ input {
 section#listas{
   float: left;
   padding: 40px 60px;
-  width: 40%;  
+  width: 50%;  
   height: auto;  
-  position: relative;
+  position: relative;  
+  
 }
 
 section#listas img{
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
 }
-
 
 section#listas ul{
-  padding: 20px 0px;
   list-style: none;
+  border: 0.6px solid var(--color-secondary);
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 8px;
 }
 
-
-section#listas_sidebar{
+/*section que define as listas à direita*/
+section#listas_right{
   float: left;
   padding: 40px 60px;
-  width: 40%;
-  height: auto;  
-  border-left: #607d8b solid 1px;
+  width: 50%;
+  height: auto;    
   position: relative;
+  border-left: var(--color-secondary) solid 1px;
 }
 
-section#listas_sidebar p{
+section#listas_right p{
   text-align: justify;
   color: var(--color-secondary);
 }
 
-section#listas_sidebar img{
-  height: 20px;
-  width: 20px;
+section#listas_right img{
+  height: 25px;
+  width: 25px;  
 }
 
-section#listas_sidebar ul{
-  padding: 20px 40px;
+section#listas_right ul{
   list-style: none;
+  border: 0.6px solid var(--color-secondary);
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 8px;
 }
 
-section#listas_sidebar input[type="text"]{
-  border-color: #607d8b;  
+section#listas_right input[type="text"]{
+  border-color: var(--color-secondary); 
+  margin-bottom: 50px; 
 }
 
+section#listas_right h4{
+  margin-bottom: 10px;
+}
 
+.btn-save {
+  background-color: var(--color-primary);
+  border: #2196f3 1px solid;
+  color: white;
+  transition: all 0.1s;
+  
+}
+
+.btn-save:hover {
+  background-color: #45a4f3;
+  border: #45a4f3 1px solid;
+  transform: translateY(-1px);
+}
