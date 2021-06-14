@@ -1,0 +1,54 @@
+<!-- initial file -->
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../includes/head.ejs') %>
+
+    <body>
+        <%- include('../includes/header.ejs'); %>
+            <div class="container">
+                <%- include('../includes/sidebar.ejs'); %>
+                    <main id="listas" class="main">
+                        <h4>Listas</h4>
+                        <div class="tasks-item">
+                            <div class="">
+                                <svg height="30" width="30">
+                                    <circle cx="15" cy="15" r="10" fill="transparent" stroke="black" stroke-width="2" />
+                                </svg>
+                                <p>Uma Lista bem legal</p>
+                            </div>
+                            <div>
+                                <img src="./assets/Edit.svg" alt="">
+                                <img src="./assets/Remove.svg" alt="">
+                            </div>
+                        </div>
+                    </main>
+
+                    <section id="listas_right">
+                        <h4>Título</h4>
+                        <input type="text" name="titulo" autofocus id="titulo">
+                        <label for="titulo"></label>
+                        <h4>Task da Lista</h4>
+                        <p class="text-help">As tasks criadas dever ser inseridas na lista através da opção &quot;Lista
+                            Pertencente
+                            (Opcional)&quot; no painel de edição da task.
+                        </p>
+                        <div class="tasks-item">
+                            <div class="">
+                                <svg height="30" width="30">
+                                    <circle cx="15" cy="15" r="10" fill="transparent" stroke="black" stroke-width="2" />
+                                </svg>
+                                <p>Uma Lista bem legal</p>
+                            </div>
+                            <div>
+                                <img src="./assets/Edit.svg" alt="">
+                                <img src="./assets/Remove.svg" alt="">
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn-primary ml-auto">Salvar Alterações</button>
+                    </section>
+            </div>
+            <script src="./js/ui.js"></script>
+    </body>
+
+</html>

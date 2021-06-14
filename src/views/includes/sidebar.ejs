@@ -1,0 +1,51 @@
+<aside class="sidebar">
+    <button type="button" class="btn-primary sidebar-item">Create Task +</button>
+    <nav>
+        <div class="sidebar-item" onclick="navigateTo('home')">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 27L15 20L7 27V5C7 3.895 7.895 3 9 3H21C22.105 3 23 3.895 23 5V27Z" fill="#607D8B" />
+            </svg>
+            <strong>Tarefas Pendentes</strong>
+
+        </div>
+        <div class="sidebar-item" onclick="navigateTo('completed')">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M4 5C2.895 5 2 5.895 2 7V23C2 24.105 2.895 25 4 25H12C13.105 25 14 25.895 14 27V7C14 5.895 13.105 5 12 5H4ZM18 5C16.895 5 16 5.895 16 7V27C16 25.895 16.895 25 18 25H26C27.105 25 28 24.105 28 23V7C28 5.895 27.105 5 26 5H18Z"
+                    fill="#607D8B" />
+            </svg>
+
+            <strong> Tarefas Concluidas</strong>
+        </div>
+        <div class="sidebar-item" onclick="navigateTo('lists')">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M5 4C3.895 4 3 4.895 3 6V9V11H22H27V8C27 6.895 26.105 6 25 6H12.1992L11.582 4.9707C11.221 4.3687 10.5702 4 9.86719 4H5ZM2.50196 13C1.49296 13 0.770409 13.9774 1.06641 14.9414L4.03516 24.5879C4.29416 25.4269 5.06927 26 5.94727 26H15H24.0527C24.9307 26 25.7058 25.4269 25.9648 24.5879L28.9336 14.9414C29.2296 13.9774 28.507 13 27.498 13H15H2.50196Z"
+                    fill="#607D8B" />
+            </svg>
+
+            <strong>Listas</strong>
+        </div>
+    </nav>
+
+    <div class="stats">
+        <div>
+            <strong>33% - Pendente</strong>
+            <div class="bg-ligth stats-bar">
+                <div class="bg-alert stats-bar-progress"></div>
+            </div>
+        </div>
+        <div>
+            <strong>33% - Completo</strong>
+            <div class="bg-ligth stats-bar">
+                <div class="bg-success stats-bar-progress"></div>
+            </div>
+        </div>
+        <div>
+            <strong>33% - Atrasado</strong>
+            <div class="bg-ligth stats-bar">
+                <div class="bg-danger stats-bar-progress"></div>
+            </div>
+        </div>
+    </div>
+</aside>

@@ -18,7 +18,7 @@ function toggleFormEdit() {
     }
 }
 
-function navegateTo(link) {
+function navigateTo(link) {
     location.href = link
 }
 
