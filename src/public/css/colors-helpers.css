@@ -1,0 +1,31 @@
+:root {
+    --color-primary: #2196f3;
+    --color-secondary: #607d8b;
+    --color-success: #4caf50;
+    --color-danger: #f44336;
+    --color-alert: #ffeb3b;
+}
+
+.bg-ligth {
+    background-color: lightgray;
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.bg-secondary {
+    background-color: var(--color-primary);
+}
+
+.bg-danger {
+    background-color: var(--color-danger);
+}
+
+.bg-alert {
+    background-color: var(--color-alert);
+}
+
+.bg-success {
+    background-color: var(--color-success);
+}
