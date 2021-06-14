@@ -1,0 +1,53 @@
+<!-- initial file -->
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../includes/head.ejs') %>
+
+    <body>
+        <%- include('../includes/header.ejs'); %>
+            <div class="container">
+                <%- include('../includes/sidebar.ejs'); %>
+        <main class="main">
+            <div class="tasks-container">
+                <div>
+                    <h4>Tarefas Concluídas</h4>
+                    <div class="tasks-item">
+                        <div>
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15 3C8.373 3 3 8.373 3 15C3 21.627 8.373 27 15 27C21.627 27 27 21.627 27 15C27 8.373 21.627 3 15 3ZM21.707 12.707L14.147 20.267C13.959 20.455 13.705 20.56 13.44 20.56C13.175 20.56 12.92 20.455 12.733 20.267L9.28 16.814C8.889 16.423 8.889 15.791 9.28 15.4C9.671 15.009 10.303 15.009 10.694 15.4L13.44 18.146L20.293 11.293C20.684 10.902 21.316 10.902 21.707 11.293C22.098 11.684 22.098 12.316 21.707 12.707Z"
+                                    fill="#4CAF50" />
+                            </svg>
+                            <p>Uma task importante ai</p>
+                        </div>
+                        <div>
+                            <img src="./assets/Edit.svg" alt="" onclick="toggleFormEdit()">
+                            <img src="./assets/Remove.svg" alt="" onclick="deleteTaskItem(this)">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <aside class="edit-form close-edit-form">
+            <img src="./assets/Delete.svg" style="margin-left:auto;" onclick="toggleFormEdit()">
+            <h4>Título</h4>
+            <input type="text" class="edit-form-text mb-2">
+            <h4>Descrição</h4>
+            <textarea class="edit-form-textarea mb-2"></textarea>
+            <h4>Lista Pertencente(opcional)</h4>
+            <p class="text-help">Ao selecionar uma lista, a task será exibida associada a ela</p>
+            <select name="select" class="edit-form-selector mb-2">
+                <option value="Lista1">Lista 1</option>
+                <option value="Lista2">Lista 2</option>
+            </select>
+            <h4>Data Limite</h4>
+            <input type="date" class="edit-form-date mb-2">
+            <button type="button" class="btn-salvar-alteracoes" onclick="fecharmenu()">Salvar alterações </button>
+        </aside>
+    </div>
+    <script src="./js/ui.js"></script>
+</body>
+
+</html>
