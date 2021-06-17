@@ -1,8 +1,7 @@
-const { DataTypes, UUIDV4 } = require('sequelize');
+const { Sequelize, DataTypes, UUIDV4 } = require('sequelize');
 const sequelize = require('../database/db')
-const List = require('./list')
 
-const Task = sequelize.define('Task', {
+const List = sequelize.define('List', {
 
     id: {
         type: DataTypes.UUID,
@@ -17,22 +16,13 @@ const Task = sequelize.define('Task', {
     description: {
         type: DataTypes.STRING,
         allowNull: true
-    },
-    date_limit: {
-        type: DataTypes.DATE,
-        allowNull: true,
-        defaultValue: null
-    },list_id: {
-        type: DataTypes.UUID,
-        allowNull: true,
-    },
+    }
 }, {
-    tableName: 'task',
+    tableName: 'list',
     timestamps: true,
     createdAt: true,
     updatedAt: true
 });
 
-
-module.exports = Task
+module.exports = List
 
