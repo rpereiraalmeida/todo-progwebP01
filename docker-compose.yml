@@ -8,7 +8,7 @@ services:
     ports: 
         - 5555:5432
     environment:
-      POSTGRES_USER: usuario
-      POSTGRES_PASSWORD: senha
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
       POSTGRES_DB: todo
 
