@@ -5,6 +5,7 @@
 To-Do é uma aplicação web para gerenciamento de tarefas diárias simples.
 Com esta ferramenta é possível definir atividades e gerenciar o status das mesmas.
 
+
 ## Configurando ambiente
 
 Para começar a usar o app, primeiro tenha o docker e docker compose instalado na máquina.
@@ -39,6 +40,13 @@ Para baixar as dependências do projeto, então com as variáveis de ambiente de
 
 Para executar a aplicação com `nodemon`, a aplicação por padrão como definido no arquivo `.env` deve ser executada na porta 3333
 
+## Integrantes do Grupo:
+  1) GABRIEL COLMAN RODRIGUES
+  2) JOAO PEDRO FIGUEIREDO DE OLIVEIRA 
+  3) MURILO ESTECA ARELHANO
+  4) RAPHAEL ALMEIDA MECENAS
+  5) RODRIGO PEREIRA DE ALMEIDA
+
 ## Histórias de Usuário
 
 - [ ] Definir tarefas
@@ -54,16 +62,3 @@ Para executar a aplicação com `nodemon`, a aplicação por padrão como defini
 - [ ] Acompanhar o andamento geral
 - [ ] Compartilhar listas com outros usuários
 - [ ] Adicionar etiquetas de marcação
-
-## Plataformas para inspiração
-
-- [Any.do](https://www.any.do)
-- [Google Keep](https://keep.google.com)
-- [Microsoft To Do](https://todo.microsoft.com)
-
-## Integrantes do Grupo:
-  1) GABRIEL COLMAN RODRIGUES
-  2) JOAO PEDRO FIGUEIREDO DE OLIVEIRA 
-  3) MURILO ESTECA ARELHANO
-  4) RAPHAEL ALMEIDA MECENAS
-  5) RODRIGO PEREIRA DE ALMEIDA
