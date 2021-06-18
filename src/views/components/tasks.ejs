@@ -1,0 +1,26 @@
+<% for (const task of tasks){ %>
+    <div class="tasks-item">
+        <div class="">
+            <% if(isDone) { %>
+                <form id="complete-task-form" action="/task/<%= task.id%>/toggle" method="POST"><img src="./assets/Ok.svg" alt="" onclick="completeTask()"></form>
+
+                <% } else { %>
+                    <form id="complete-task-form" action="/task/<%= task.id%>/toggle" method="POST" onclick="completeTask()">
+                        <svg height="30" width="30">
+                            <circle cx="15" cy="15" r=10 fill="transparent" stroke="black" stroke-width="2" />
+                        </svg>
+                    </form>
+                    <% } %>
+
+                        <p>
+                            <%= task.title%>
+                        </p>
+        </div>
+        <div>
+            <img src="./assets/Edit.svg" alt="" onclick="toggleFormEdit('<%= task.id%>')">
+            <form id="delete-task-form" action="/task/<%= task.id%>/delete" method="POST">
+                <img src="./assets/Remove.svg" alt="" onclick="deleteTaskItem(this)">
+            </form>
+        </div>
+    </div>
+    <% } %>
