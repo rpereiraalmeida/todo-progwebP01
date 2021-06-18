@@ -18,11 +18,16 @@ const Task = sequelize.define('Task', {
         type: DataTypes.STRING,
         allowNull: true
     },
+    isDone: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+    },
     date_limit: {
         type: DataTypes.DATE,
         allowNull: true,
         defaultValue: null
-    },list_id: {
+    }, list_id: {
         type: DataTypes.UUID,
         allowNull: true,
     },
