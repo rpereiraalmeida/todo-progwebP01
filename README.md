@@ -9,12 +9,15 @@ Com esta ferramenta é possível definir atividades e gerenciar o status das mes
 ## Configurando ambiente
 
 Para começar a usar o app, primeiro tenha o docker e docker compose instalado na máquina.
-Em seguida va até a raiz do projeto e use o campo
+Em seguida va até a raiz do projeto e use o comando:
 
 > docker-compose up -d
 
 Para subir um container docker com o PostgresSQL configurado, olhe o arquivo para ver as portas de acesso e credenciais de usuário caso tenha problemas.
 Em seguida lembresse de olhar o arquivo `.env` presente na raiz do projeto. Ele contem as constante que são usadas para iniciar a aplicação presente no arquivo `app.js`.
+
+## Banco de dados
+O banco de dados está rodando dentro do docker (PotgreSQL), ao iniciar a aplicação será criado automaticamente dentro do banco de dados a estrutura a partir das models colocadas  na pasta de models.
 
 ### O Arquivo '.Env'
 

@@ -4,6 +4,7 @@ const models = require('./models/models')
 const sequelize = require('./database/db')
 const path = require('path')
 const dotenv = require('dotenv')
+const WebRequestError = require('./util/error')
 dotenv.config()
 
 const app = express()
@@ -22,13 +23,14 @@ const { SERVER_PORT } = process.env
 
 
 app.use((err, req, res, next) => {
+
     res.render(path.join(__dirname, 'views/err/404.ejs'), {
         status: err.status,
         message: err.message
     })
 })
 
-sequelize.sync()
+sequelize.sync({ logging: false })
     .then(response => {
         console.log('Banco de dados atualizado com sucesso');
         app.listen(SERVER_PORT, () => {
