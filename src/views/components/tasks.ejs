@@ -17,7 +17,7 @@
                         </p>
         </div>
         <div>
-            <img src="./assets/Edit.svg" alt="" onclick="toggleFormEdit('<%= task.id%>')">
+            <img src="./assets/Edit.svg" alt="" onclick="toggleTaskFormEdit('<%= task.id%>')">
             <form id="delete-task-form" action="/task/<%= task.id%>/delete" method="POST">
                 <img src="./assets/Remove.svg" alt="" onclick="deleteTaskItem(this)">
             </form>
