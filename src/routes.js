@@ -24,7 +24,11 @@ routes.post("/task/:id/toggle", taskController.toggleStatusTask);
 
 routes.get("/completed", taskController.getCompleteTasks);
 
-routes.get("/lists", listController.getAllLists);
+routes.get("/lists", listController.renderAllLists);
+
+routes.get("/lists/all", listController.getAllLists);
+
+routes.get("/lists/:id/tasks", listController.renderAllTaskByList);
 
 routes.get("/lists/:id", listController.getListByid);
 

@@ -25,7 +25,8 @@
                                     </div>
                                     <div>
                                         <img src="./assets/Edit.svg" alt="" onclick="toggleListFormEdit('<%= list.id%>')" >
-                                        <form id="delete-list-form" action="/lists/<%= list.id%>/delete" method="POST">
+                                        <img src="./assets/Tasks.svg" alt="" onclick="navigateTo('lists/<%= list.id%>/tasks')" >
+                                        <form id="delete-list-form-<%= list.id%>" action="/lists/<%= list.id%>/delete" method="POST">
                                             <!-- Submit do formulário -->
                                             <button class="btn-no-style" type="submit">
                                                 <img src="./assets/Remove.svg" alt="">

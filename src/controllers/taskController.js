@@ -49,18 +49,19 @@ exports.getTaskByid = async (req, res, next) => {
 };
 
 exports.updateTaskById = async (req, res, next) => {
-  let { id, title, description, date, listid } = Object.assign(
-    {},
-    req.params,
-    req.body
-  );
-  console.log(req);
+  const { id, title, description, date, listid } = req.body;
   try {
     const task = await Task.findByPk(id);
+
     task.title = title;
+
     task.description = description;
-    task.date_limit = date != "" ? date : null;
-    task.listid = listid != "none" ? listid : null;
+
+    task.date_limit = date !== "" ? date : null;
+
+    // O correto é task.list_id ou task.listId, ao inves de task.listid
+    task.list_id = listid != "" ? listid : null;
+
     await task.save();
     res.redirect("back");
   } catch (err) {

@@ -27,7 +27,13 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("", routes);
 
-app.use((err, req, res) => {
+/**
+ * A quantidade de parametros faz diferença no tipo de middleware,
+ * o eslint foi configurado para ignorar o parametro next
+ *
+ * see: https://github.com/expressjs/generator/issues/78
+ * */
+app.use((err, req, res, next) => {
   res.render(path.join(__dirname, "views/err/404.ejs"), {
     status: err.status,
     message: err.message,

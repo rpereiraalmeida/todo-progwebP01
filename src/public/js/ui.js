@@ -1,16 +1,24 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-let sidebar = document.getElementsByClassName("sidebar")[0];
-let titleInputEl = document.querySelector('input[name="title"]');
-let descriptionInputEl = document.querySelector('textarea[name="description"]');
-let listidInputEl = document.querySelector('select[name="listid"]');
-let dateInputEl = document.querySelector('input[name="date"]');
-let idInputEl = document.querySelector('input[name="id"]');
-let buttonTask = document.getElementById("create-task");
-let buttonList = document.getElementById("create-list");
+const sidebar = document.getElementsByClassName("sidebar")[0];
+const titleInputEl = document.querySelector('input[name="title"]');
+const descriptionInputEl = document.querySelector(
+  'textarea[name="description"]'
+);
+const selectListInputEl = document.querySelector('select[name="listid"]');
+const dateInputEl = document.querySelector('input[name="date"]');
+const idInputEl = document.querySelector('input[name="id"]');
+const buttonTask = document.getElementById("create-task");
+const buttonList = document.getElementById("create-list");
+const editform = document.getElementsByClassName("edit-form")[0];
 
-if (window.location.pathname !== "/lists") {
-  console.log(window.location.pathname);
+const pathname = window.location.pathname;
+const basePaths = ["/lists", "/home", "/completed"];
+
+if (!basePaths.includes(pathname)) {
+  buttonList.hidden = true;
+  buttonTask.hidden = true;
+} else if (pathname !== "/lists") {
   buttonList.hidden = true;
 } else {
   buttonTask.hidden = true;
@@ -24,20 +32,36 @@ function toggleMenu() {
   }
 }
 
-let editform = document.getElementsByClassName("edit-form")[0];
-
-async function toggleTaskFormEdit(taskId) {
+async function toggleListFormEdit(listId) {
   if (editform.classList.contains("close-edit-form")) {
-    await loadEditTaskForm(taskId);
+    await loadEditListForm(listId);
     editform.classList.remove("close-edit-form");
   } else {
     editform.classList.add("close-edit-form");
   }
 }
 
-async function toggleListFormEdit(listId) {
+async function loadEditListForm(listId) {
+  try {
+    const list = await (
+      await fetch(`/lists/${listId}`, { method: "GET" })
+    ).json();
+
+    titleInputEl.value = list.title;
+
+    descriptionInputEl.innerHTML = list.description;
+
+    idInputEl.value = list.id;
+  } catch (error) {
+    titleInputEl.value = "Erro ao carregar a task #deuruim";
+
+    descriptionInputEl.innerHTML = error.message;
+  }
+}
+
+async function toggleTaskFormEdit(taskId) {
   if (editform.classList.contains("close-edit-form")) {
-    await loadEditListForm(listId);
+    await loadEditTaskForm(taskId);
     editform.classList.remove("close-edit-form");
   } else {
     editform.classList.add("close-edit-form");
@@ -49,45 +73,76 @@ async function loadEditTaskForm(taskId) {
     const task = await (
       await fetch(`/task/${taskId}`, { method: "GET" })
     ).json();
+
     const date_limit = new Date(task.date_limit);
+
     let date_limit_formated = date_limit.toISOString().slice(0, 10);
 
     titleInputEl.value = task.title;
+
     descriptionInputEl.innerHTML = task.description;
-    listidInputEl.value = task.listId ? task.listId : "none";
+
+    const lists = await (await fetch(`/lists/all`, { method: "GET" })).json();
+
+    /**
+     * Remove as opção do select e após isso as recria
+     * de acordo com a lista recebida
+     */
+    removeOptionFromSelect();
+
+    createOptionFromLists(lists);
+
+    selectListInputEl.value = task.list_id ? task.list_id : "";
+
     dateInputEl.value = date_limit_formated;
+
     idInputEl.value = task.id;
   } catch (error) {
     titleInputEl.value = "Erro ao carregar a task #deuruim";
+
     descriptionInputEl.innerHTML = error.message;
   }
 }
 
-async function loadEditListForm(listId) {
-  try {
-    const lists = await (
-      await fetch(`/lists/${listId}`, { method: "GET" })
-    ).json();
+function completeTask(id) {
+  document.getElementById(`complete-task-form-${id}`).submit();
+}
 
-    titleInputEl.value = lists.title;
-    descriptionInputEl.innerHTML = lists.description;
-    idInputEl.value = lists.id;
-    // listidInputEl.value = task.listId ? task.listId : "none";
-  } catch (error) {
-    titleInputEl.value = "Erro ao carregar a task #deuruim";
-    descriptionInputEl.innerHTML = error.message;
-  }
+function deleteTaskItem(id) {
+  document.getElementById(`delete-task-form-${id}`).submit();
+}
+
+function removeOptionFromSelect() {
+  Object.values(selectListInputEl.options).forEach((o) => {
+    if (o.value !== "") {
+      selectListInputEl.removeChild(o);
+    }
+  });
+}
+
+function createOptionFromLists(lists) {
+  lists.forEach((list) => {
+    const option = document.createElement("option");
+
+    option.value = list.id;
+
+    option.text = list.title;
+
+    selectListInputEl.appendChild(option);
+  });
 }
 
 function navigateTo(link) {
   location.href = link;
 }
 
-function completeTask(el) {
-  document.getElementById("complete-task-form").submit();
-}
-
-function deleteTaskItem(el) {
-  document.getElementById("delete-task-form").submit();
-  el.parentNode.parentNode.parentNode.remove();
+function search(param) {
+  const items = document.getElementsByClassName("tasks-item");
+  Array.from(items).forEach((i) => {
+    if (!i.innerText.toLowerCase().includes(param.toLowerCase())) {
+      i.hidden = true;
+    } else {
+      i.hidden = false;
+    }
+  });
 }
