@@ -8,7 +8,7 @@
             <div class="container">
                 <%- include('../includes/sidebar.ejs'); %>
                     <main class="main">
-                        <div class="tasks-container">
+                        <div class="container-geral">
                             <div>
                                 <h4>Tarefas Pendentes</h4>
                                 <span class="text-help">Visualize todas as tasks que ainda não foram concluídas</span>
@@ -22,8 +22,9 @@
                                 <%- include('../components/tasks.ejs', {tasks: completeTasks, isDone: true}) %>
                             </div>
                     </main>
-                    <%- include('../includes/edit-form.ejs'); %>
+                    <%- include('../includes/task-edit-form.ejs'); %>
             </div>
+
             <script src="./js/ui.js"></script>
     </body>
 
