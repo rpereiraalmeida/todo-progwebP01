@@ -45,20 +45,6 @@ module.exports = {
       next(err);
     }
   },
-  // };
-  // exports.getCompleteTasks = async (req, res, next) => {
-  //   try {
-  //     const completeTasks = await Task.findAll({ where: { isDone: true } });
-  //     res
-  //       .status(200)
-  //       .render(path.join(__dirname, "../views/pages/tarefas-concluidas.ejs"), {
-  //         completeTasks,
-  //       });
-  //   } catch (err) {
-  //     next(err);
-  //   }
-  // };
-
   createNewList: async (req, res, next) => {
     try {
       const newList = List.build({ title: "Edite sua nova lista" });
@@ -108,15 +94,4 @@ module.exports = {
       next(err);
     }
   },
-
-  // exports.toggleStatusTask = async (req, res, next) => {
-  //   let { id } = Object.assign({}, req.params, req.body);
-  //   try {
-  //     const task = await Task.findByPk(id);
-  //     task.isDone = !task.isDone;
-  //     task.save();
-  //     res.redirect("back");
-  //   } catch (err) {
-  //     next(err);
-  //   }
 };
