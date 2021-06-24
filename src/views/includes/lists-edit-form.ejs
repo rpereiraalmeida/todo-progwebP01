@@ -1,0 +1,12 @@
+<aside class="edit-form close-edit-form">
+     <!-- Padronizado -->
+    <form id="edit-form" action="/lists/update" method="POST">
+        <img src="./assets/Delete.svg" style="margin-left:auto; cursor: pointer;" onclick="toggleListFormEdit()">
+        <h4>Título</h4>
+        <input type="text" name="title" class="edit-form-text mb-2">
+        <h4>Descrição</h4>
+        <textarea form="edit-form" class="edit-form-textarea mb-2" name="description" rows="7" cols="45"></textarea>
+        <input type="hidden" name="id" class="">
+        <button type="submit" class="btn-salvar-alteracoes">Salvar alterações</button>
+    </form>
+</aside>

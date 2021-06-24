@@ -1,0 +1,19 @@
+<aside class="edit-form close-edit-form">
+    <form id="edit-form" action="/task/update" method="POST">
+        <img src="./assets/Delete.svg" style="margin-left:auto; cursor: pointer;" onclick="toggleTaskFormEdit()">
+        <h4>Título</h4>
+        <input type="text" name="title" class="edit-form-text mb-2">
+        <h4>Descrição</h4>
+        <textarea form="edit-form" class="edit-form-textarea mb-2" name="description" rows="7" cols="45"></textarea>
+        <h4>Lista Pertencente(opcional)</h4>
+        <p class="text-help">Ao selecionar uma lista, a task será exibida associada a ela</p>
+        <select name="listid" class="edit-form-selector mb-2">
+            <!-- Valor padrão para selecionado = "" -->
+            <option selected value="">Selecione uma lista para essa tarefa</option>
+        </select>
+        <h4>Data Limite</h4>
+        <input type="date" name="date" class="edit-form-date mb-2">
+        <input type="hidden" name="id" class="">
+        <button type="submit" class="btn-salvar-alteracoes">Salvar alterações</button>
+    </form>
+</aside>

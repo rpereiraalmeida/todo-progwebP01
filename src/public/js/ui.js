@@ -1,60 +1,148 @@
-let sidebar = document.getElementsByClassName('sidebar')[0]
-let titleInputEl = document.querySelector('input[name="title"]')
-let descriptionInputEl = document.querySelector('textarea[name="description"]')
-let listidInputEl = document.querySelector('select[name="listid"]')
-let dateInputEl = document.querySelector('input[name="date"]')
-let idInputEl = document.querySelector('input[name="id"]')
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+const sidebar = document.getElementsByClassName("sidebar")[0];
+const titleInputEl = document.querySelector('input[name="title"]');
+const descriptionInputEl = document.querySelector(
+  'textarea[name="description"]'
+);
+const selectListInputEl = document.querySelector('select[name="listid"]');
+const dateInputEl = document.querySelector('input[name="date"]');
+const idInputEl = document.querySelector('input[name="id"]');
+const buttonTask = document.getElementById("create-task");
+const buttonList = document.getElementById("create-list");
+const editform = document.getElementsByClassName("edit-form")[0];
 
+const pathname = window.location.pathname;
+const basePaths = ["/lists", "/home", "/completed"];
+
+if (!basePaths.includes(pathname)) {
+  buttonList.hidden = true;
+  buttonTask.hidden = true;
+} else if (pathname !== "/lists") {
+  buttonList.hidden = true;
+} else {
+  buttonTask.hidden = true;
+}
 
 function toggleMenu() {
-    if (sidebar.classList.contains('close-menu')) {
-        sidebar.classList.remove('close-menu')
-    } else {
-        sidebar.classList.add('close-menu')
-    }
+  if (sidebar.classList.contains("close-menu")) {
+    sidebar.classList.remove("close-menu");
+  } else {
+    sidebar.classList.add("close-menu");
+  }
 }
 
-let editform = document.getElementsByClassName('edit-form')[0]
-
-async function toggleFormEdit(taskId) {
-    if (editform.classList.contains('close-edit-form')) {
-        await loadEditForm(taskId)
-        editform.classList.remove('close-edit-form')
-    } else {
-        editform.classList.add('close-edit-form')
-    }
-
+async function toggleListFormEdit(listId) {
+  if (editform.classList.contains("close-edit-form")) {
+    await loadEditListForm(listId);
+    editform.classList.remove("close-edit-form");
+  } else {
+    editform.classList.add("close-edit-form");
+  }
 }
 
-async function loadEditForm(taskId) {
-    try {
-        const task = await (await fetch(`/task/${taskId}`, { method: 'GET' })).json()
-        const date_limit = new Date(task.date_limit)
-        let date_limit_formated = date_limit.toISOString().slice(0, 10);
+async function loadEditListForm(listId) {
+  try {
+    const list = await (
+      await fetch(`/lists/${listId}`, { method: "GET" })
+    ).json();
 
-        titleInputEl.value = task.title
-        descriptionInputEl.innerHTML = task.description
-        listidInputEl.value = task.listId ? task.listId : 'none'
-        dateInputEl.value = date_limit_formated
-        idInputEl.value = task.id
-    } catch (error) {
-        titleInputEl.value = 'Erro ao carregar a task #deuruim'
-        descriptionInputEl.innerHTML = error.message
+    titleInputEl.value = list.title;
+
+    descriptionInputEl.innerHTML = list.description;
+
+    idInputEl.value = list.id;
+  } catch (error) {
+    titleInputEl.value = "Erro ao carregar a task #deuruim";
+
+    descriptionInputEl.innerHTML = error.message;
+  }
+}
+
+async function toggleTaskFormEdit(taskId) {
+  if (editform.classList.contains("close-edit-form")) {
+    await loadEditTaskForm(taskId);
+    editform.classList.remove("close-edit-form");
+  } else {
+    editform.classList.add("close-edit-form");
+  }
+}
+
+async function loadEditTaskForm(taskId) {
+  try {
+    const task = await (
+      await fetch(`/task/${taskId}`, { method: "GET" })
+    ).json();
+
+    const date_limit = new Date(task.date_limit);
+
+    let date_limit_formated = date_limit.toISOString().slice(0, 10);
+
+    titleInputEl.value = task.title;
+
+    descriptionInputEl.innerHTML = task.description;
+
+    const lists = await (await fetch(`/lists/all`, { method: "GET" })).json();
+
+    /**
+     * Remove as opção do select e após isso as recria
+     * de acordo com a lista recebida
+     */
+    removeOptionFromSelect();
+
+    createOptionFromLists(lists);
+
+    selectListInputEl.value = task.list_id ? task.list_id : "";
+
+    dateInputEl.value = date_limit_formated;
+
+    idInputEl.value = task.id;
+  } catch (error) {
+    titleInputEl.value = "Erro ao carregar a task #deuruim";
+
+    descriptionInputEl.innerHTML = error.message;
+  }
+}
+
+function completeTask(id) {
+  document.getElementById(`complete-task-form-${id}`).submit();
+}
+
+function deleteTaskItem(id) {
+  document.getElementById(`delete-task-form-${id}`).submit();
+}
+
+function removeOptionFromSelect() {
+  Object.values(selectListInputEl.options).forEach((o) => {
+    if (o.value !== "") {
+      selectListInputEl.removeChild(o);
     }
+  });
+}
 
+function createOptionFromLists(lists) {
+  lists.forEach((list) => {
+    const option = document.createElement("option");
 
+    option.value = list.id;
+
+    option.text = list.title;
+
+    selectListInputEl.appendChild(option);
+  });
 }
 
 function navigateTo(link) {
-    location.href = link
+  location.href = link;
 }
 
-function completeTask(el) {
-    document.getElementById("complete-task-form").submit()
-}
-
-function deleteTaskItem(el) {
-    document.getElementById("delete-task-form").submit()
-    el.parentNode.parentNode.parentNode.remove()
-
+function search(param) {
+  const items = document.getElementsByClassName("tasks-item");
+  Array.from(items).forEach((i) => {
+    if (!i.innerText.toLowerCase().includes(param.toLowerCase())) {
+      i.hidden = true;
+    } else {
+      i.hidden = false;
+    }
+  });
 }
