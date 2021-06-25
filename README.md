@@ -25,14 +25,6 @@ Variáveis:
 
 `SERVER_PORT` responsável por informar a aplicação a porta que usará
 
-`DB_PORT` porta que está rodando o banco de dados
-
-`DB_NAME` nome do database criado por padrão
-
-`DB_USER` usuário criado por padrão no banco
-
-`DB_PASSWORD` senha do usuário padrão
-
 ## Iniciando o app
 Ao fazer o clone do repositório vá até a raiz do projeto e execute o comando:
 
