@@ -74,9 +74,13 @@ async function loadEditTaskForm(taskId) {
       await fetch(`/task/${taskId}`, { method: "GET" })
     ).json();
 
-    const date_limit = new Date(task.date_limit);
-
-    let date_limit_formated = date_limit.toISOString().slice(0, 10);
+    let date_limit_formated;
+    if (task.date_limit != null) {
+      const date_limit = new Date(task.date_limit);
+      date_limit_formated = (date_limit == null) ? null : date_limit.toISOString().slice(0, 10);
+    }else{
+      date_limit_formated =  ""
+    }
 
     titleInputEl.value = task.title;
 
@@ -94,6 +98,7 @@ async function loadEditTaskForm(taskId) {
 
     selectListInputEl.value = task.list_id ? task.list_id : "";
 
+    console.log(date_limit_formated)
     dateInputEl.value = date_limit_formated;
 
     idInputEl.value = task.id;
