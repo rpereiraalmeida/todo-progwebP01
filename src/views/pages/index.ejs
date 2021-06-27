@@ -6,18 +6,26 @@
     <body>
         <%- include('../includes/header.ejs'); %>
             <div class="container">
-                <%- include('../includes/sidebar.ejs'); %>
+                <%- include('../includes/sidebar.ejs', {percentage}); %>
                     <main class="main">
                         <div class="container-geral">
                             <div>
-                                <h4>Tarefas Pendentes</h4>
+                                <h4>Tarefas Pendentes <% if( locals.list ){ %> da lista - <strong>
+                                            <%= list.title %>
+                                        </strong>
+                                        <% } %>
+                                </h4>
                                 <span class="text-help">Visualize todas as tasks que ainda não foram concluídas</span>
 
                                 <%- include('../components/tasks.ejs', {tasks: incompleteTasks, isDone: false}) %>
 
                             </div>
                             <div>
-                                <h4>Concluídas Recentemente</h4>
+                                <h4>Concluídas Recentemente <% if( locals.list ){ %> da lista - <strong>
+                                            <%= list.title %>
+                                        </strong>
+                                        <% } %>
+                                </h4>
                                 <span class="text-help">Suas ultimas 5 tarefas concluídas</span>
                                 <%- include('../components/tasks.ejs', {tasks: completeTasks, isDone: true}) %>
                             </div>

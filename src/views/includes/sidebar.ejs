@@ -33,21 +33,21 @@
 
     <div class="stats">
         <div>
-            <strong>33% - Pendente</strong>
+            <strong><%= percentage.pendentes.toFixed(2) %>% - Pendente</strong>
             <div class="bg-ligth stats-bar">
-                <div class="bg-alert stats-bar-progress"></div>
+                <div class="bg-alert stats-bar-progress" style="width: <%= percentage.pendentes %>%;"></div>
             </div>
         </div>
         <div>
-            <strong>33% - Completo</strong>
+            <strong><%= percentage.completas.toFixed(2) %>% - Completo</strong>
             <div class="bg-ligth stats-bar">
-                <div class="bg-success stats-bar-progress"></div>
+                <div class="bg-success stats-bar-progress" style="width: <%= percentage.completas %>%;"></div>
             </div>
         </div>
         <div>
-            <strong>33% - Atrasado</strong>
+            <strong><%= percentage.atrasadas.toFixed(2); %>% - Atrasado</strong>
             <div class="bg-ligth stats-bar">
-                <div class="bg-danger stats-bar-progress"></div>
+                <div class="bg-danger stats-bar-progress" style="width: <%= percentage.atrasadas %>%;"></div>
             </div>
         </div>
     </div>

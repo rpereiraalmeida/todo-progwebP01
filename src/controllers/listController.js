@@ -1,6 +1,7 @@
 const List = require("../models/list");
 const path = require("path");
 const { Task } = require("../models");
+const statusPainelController = require('../controllers/statusPainelController')
 
 // const WebRequestError = require("../util/error");
 module.exports = {
@@ -11,6 +12,7 @@ module.exports = {
         .status(200)
         .render(path.join(__dirname, "../views/pages/listas.ejs"), {
           lists,
+          percentage: await statusPainelController.buildStatusInfos()
         });
     } catch (err) {
       next(err);
@@ -19,8 +21,9 @@ module.exports = {
 
   renderAllTaskByList: async (req, res, next) => {
     const { id } = req.params;
-
+    const dateNow = Date.now()
     try {
+      const list = await List.findByPk(id);
       const incompleteTasks = await Task.findAll({
         where: { isDone: false, list_id: id },
       });
@@ -28,9 +31,32 @@ module.exports = {
         where: { isDone: true, list_id: id },
       });
 
+      completeTasks.forEach((task, index) => {
+        task.setDataValue('status', 'Completa')
+        task.setDataValue('statusColor', '#4CAF50')
+        
+        completeTasks[index] = task
+      })
+      incompleteTasks.forEach((task, index) => {
+        if(task.date_limit == null){
+          task.setDataValue('status', 'Pendente')
+          task.setDataValue('statusColor', '#FFEB3B')
+          return
+        }
+        if (new Date(task.date_limit).getTime() > dateNow) {
+          task.setDataValue('status', 'Pendente')
+          task.setDataValue('statusColor', '#FFEB3B')
+        } else {
+          task.setDataValue('status', 'Atrasada')
+          task.setDataValue('statusColor', '#F44336')
+        }
+        incompleteTasks[index] = task
+      })
       res.status(200).render(path.join(__dirname, "../views/pages/index.ejs"), {
         incompleteTasks,
         completeTasks,
+        list: list.get(),
+        percentage: await statusPainelController.buildStatusInfos()
       });
     } catch (err) {
       next(err);
