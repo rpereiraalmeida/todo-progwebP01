@@ -1,0 +1,27 @@
+<!-- initial file -->
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../includes/head.ejs') %>
+
+    <body>
+        <%- include('../includes/header.ejs'); %>
+            <div class="container">
+                <%- include('../includes/sidebar.ejs'); %>
+        <main class="main">
+            <div class="container-geral">
+                <% var data = new Date(); %>
+                <div>
+                    <h4>Tarefas Atrasadas</h4>
+                    <%- include('../components/tasks.ejs', {tasks: incompleteTasks, date_limit < data}) %>
+                </div>
+
+            </div>
+        </main>
+
+        <%- include('../includes/task-edit-form.ejs') %>
+    </div>
+    <script src="./js/ui.js"></script>
+
+</body>
+
+</html>
