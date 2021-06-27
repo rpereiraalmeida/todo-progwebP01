@@ -1,18 +1,18 @@
 const List = require("../models/list");
 const path = require("path");
 const { Task } = require("../models");
-const statusPainelController = require('../controllers/statusPainelController')
+const statusController = require('../controllers/statusController')
 
 // const WebRequestError = require("../util/error");
 module.exports = {
   renderAllLists: async (req, res, next) => {
     try {
-      const lists = await List.findAll();
+      let lists = await List.findAll();
       res
         .status(200)
         .render(path.join(__dirname, "../views/pages/listas.ejs"), {
           lists,
-          percentage: await statusPainelController.buildStatusInfos()
+          percentage: await statusController.buildStatusInfos()
         });
     } catch (err) {
       next(err);
@@ -21,42 +21,21 @@ module.exports = {
 
   renderAllTaskByList: async (req, res, next) => {
     const { id } = req.params;
-    const dateNow = Date.now()
     try {
-      const list = await List.findByPk(id);
-      const incompleteTasks = await Task.findAll({
+      let list = await List.findByPk(id);
+      let incompleteTasks = await Task.findAll({
         where: { isDone: false, list_id: id },
       });
-      const completeTasks = await Task.findAll({
+      let completeTasks = await Task.findAll({
         where: { isDone: true, list_id: id },
       });
-
-      completeTasks.forEach((task, index) => {
-        task.setDataValue('status', 'Completa')
-        task.setDataValue('statusColor', '#4CAF50')
-        
-        completeTasks[index] = task
-      })
-      incompleteTasks.forEach((task, index) => {
-        if(task.date_limit == null){
-          task.setDataValue('status', 'Pendente')
-          task.setDataValue('statusColor', '#FFEB3B')
-          return
-        }
-        if (new Date(task.date_limit).getTime() > dateNow) {
-          task.setDataValue('status', 'Pendente')
-          task.setDataValue('statusColor', '#FFEB3B')
-        } else {
-          task.setDataValue('status', 'Atrasada')
-          task.setDataValue('statusColor', '#F44336')
-        }
-        incompleteTasks[index] = task
-      })
+      completeTasks = statusController.setStatusCompleteTasks(completeTasks)
+      incompleteTasks = statusController.setStatusIncompleteTasks(incompleteTasks)
       res.status(200).render(path.join(__dirname, "../views/pages/index.ejs"), {
         incompleteTasks,
         completeTasks,
         list: list.get(),
-        percentage: await statusPainelController.buildStatusInfos()
+        percentage: await statusController.buildStatusInfos()
       });
     } catch (err) {
       next(err);
@@ -65,7 +44,7 @@ module.exports = {
 
   getAllLists: async (req, res, next) => {
     try {
-      const lists = await List.findAll();
+      let lists = await List.findAll();
       res.status(200).send(lists);
     } catch (err) {
       next(err);
@@ -73,7 +52,7 @@ module.exports = {
   },
   createNewList: async (req, res, next) => {
     try {
-      const newList = List.build({ title: "Edite sua nova lista" });
+      let newList = List.build({ title: "Edite sua nova lista" });
       await newList.save();
     } catch (err) {
       next(err);
@@ -97,7 +76,7 @@ module.exports = {
     console.log(description);
 
     try {
-      const list = await List.findByPk(id);
+      let list = await List.findByPk(id);
 
       list.title = title;
 
@@ -113,7 +92,7 @@ module.exports = {
   deleteListById: async (req, res, next) => {
     const { id } = req.params;
     try {
-      const task = await List.findByPk(id);
+      let task = await List.findByPk(id);
       task.destroy();
       res.redirect("back");
     } catch (err) {

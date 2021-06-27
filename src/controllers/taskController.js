@@ -1,37 +1,18 @@
 const Task = require("../models/task");
 const path = require("path");
-const statusPainelController = require('../controllers/statusPainelController')
+const statusController = require('./statusController')
 
 exports.getAllTasks = async (req, res, next) => {
   try {
     const dateNow = Date.now()
     var incompleteTasks = await Task.findAll({ where: { isDone: false } });
     var completeTasks = await Task.findAll({ where: { isDone: true } });
-    completeTasks.forEach((task, index) => {
-      task.setDataValue('status', 'Completa')
-      task.setDataValue('statusColor', '#4CAF50')
-      
-      completeTasks[index] = task
-    })
-    incompleteTasks.forEach((task, index) => {
-      if(task.date_limit == null){
-        task.setDataValue('status', 'Pendente')
-        task.setDataValue('statusColor', '#FFEB3B')
-        return
-      }
-      if (new Date(task.date_limit).getTime() > dateNow) {
-        task.setDataValue('status', 'Pendente')
-        task.setDataValue('statusColor', '#FFEB3B')
-      } else {
-        task.setDataValue('status', 'Atrasada')
-        task.setDataValue('statusColor', '#F44336')
-      }
-      incompleteTasks[index] = task
-    })
+    completeTasks = statusController.setStatusCompleteTasks(completeTasks)
+    incompleteTasks = statusController.setStatusIncompleteTasks(incompleteTasks)
     res.status(200).render(path.join(__dirname, "../views/pages/index.ejs"), {
       incompleteTasks,
       completeTasks,
-      percentage: await statusPainelController.buildStatusInfos()
+      percentage: await statusController.buildStatusInfos()
     });
   } catch (err) {
     next(err);
@@ -39,18 +20,13 @@ exports.getAllTasks = async (req, res, next) => {
 };
 exports.getCompleteTasks = async (req, res, next) => {
   try {
-    const completeTasks = await Task.findAll({ where: { isDone: true } });
-    completeTasks.forEach((task, index) => {
-      task.setDataValue('status', 'Completa')
-      task.setDataValue('statusColor', '#4CAF50')
-      
-      completeTasks[index] = task
-    })
+    var completeTasks = await Task.findAll({ where: { isDone: true } });
+    completeTasks = statusController.setStatusCompleteTasks(completeTasks)
     res
       .status(200)
       .render(path.join(__dirname, "../views/pages/tarefas-concluidas.ejs"), {
         completeTasks,
-        percentage: await statusPainelController.buildStatusInfos()
+        percentage: await statusController.buildStatusInfos()
       });
   } catch (err) {
     next(err);
@@ -64,7 +40,7 @@ exports.createNewTask = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-  res.status(200).redirect("back");
+  res.status(200).redirect("/home");
 };
 
 exports.getTaskByid = async (req, res, next) => {
