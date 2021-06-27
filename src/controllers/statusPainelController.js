@@ -9,7 +9,10 @@ exports.buildStatusInfos = async () => {
         atrasadas: 0
     }
     tasks.rows.forEach((task, index) => {
-
+        if (task.date_limit == null) {
+            count.pendentes += 1
+            return;
+        }
         if (task.isDone) {
             count.completas += 1
         } else {
@@ -23,11 +26,11 @@ exports.buildStatusInfos = async () => {
 
     })
     const percentage = {
-        completas: (count.completas*100)/tasks.count || 0,
-        pendentes: (count.pendentes*100)/tasks.count || 0,
-        atrasadas: (count.atrasadas*100)/tasks.count || 0
+        completas: (count.completas * 100) / tasks.count || 0,
+        pendentes: (count.pendentes * 100) / tasks.count || 0,
+        atrasadas: (count.atrasadas * 100) / tasks.count || 0
     }
-  
+
     return percentage
-    
-}   
+
+}
