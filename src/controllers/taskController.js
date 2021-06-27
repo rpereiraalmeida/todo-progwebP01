@@ -27,6 +27,20 @@ exports.getCompleteTasks = async (req, res, next) => {
     next(err);
   }
 };
+exports.getDelayedTasks = async (req, res, next) => {
+  var data = new Date();
+  try {
+    const incompleteTasks = await Task.findAll({ where: { date_limit < data } });
+    res
+      .status(200)
+      .render(path.join(__dirname, "../views/pages/tarefas-atrasadas.ejs"), {
+        incompleteTasks,
+      });
+  } catch (err) {
+    next(err);
+  }
+};
+
 
 exports.createNewTask = async (req, res, next) => {
   try {
